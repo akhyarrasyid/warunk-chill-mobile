@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:warunk_chill/menu.dart';
+import 'package:warunk_chill/screens/menu.dart';
 
 void main() {
   runApp(const MyApp());
