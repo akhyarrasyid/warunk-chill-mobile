@@ -425,10 +425,10 @@ ListTile(
   },
 ),
 ```
-<details>
+</details>
 
 ## Tugas 9 - PBP 2024/2025
-## 1. Ada beberapa alasan kita membuat model terlebih dahulu di flutter untuk melakukan pengiriman atau pengambilan data json dari backend / django. Berikut penjelasannya :
+### 1. Ada beberapa alasan kita membuat model terlebih dahulu di flutter untuk melakukan pengiriman atau pengambilan data json dari backend / django. Berikut penjelasannya :
 
 1.  **Struktur Data yang Jelas:**
     -   Model memungkinkan kita mendefinisikan dengan jelas atribut-atribut data yang dikirim atau diterima (misalnya, tipe data dan properti JSON).
@@ -444,15 +444,15 @@ ListTile(
 4.  **Pendeteksian Error Lebih Cepat:**
     -   Dengan model, IDE dapat memberikan peringatan jika ada kesalahan akses atribut atau metode yang salah karena tipe data yang tidak sesuai.
 
-## 2. Jelaskan fungsi dari library http yang sudah kamu implementasikan pada tugas ini
+### 2. Jelaskan fungsi dari library http yang sudah kamu implementasikan pada tugas ini
 Library http dalam Flutter berfungsi utama untuk memungkinkan aplikasi berkomunikasi dengan server menggunakan protokol HTTP. Dalam tugas ini, library tersebut digunakan untuk mengambil data dari API atau mengirim data ke server. Dengan memanfaatkan library ini, aplikasi dapat melakukan berbagai jenis permintaan HTTP seperti GET, POST, PUT, DELETE, dan lainnya, untuk berinteraksi dengan server dan memperoleh data yang diperlukan.
 
-## 3. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+### 3. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
 CookieRequest berfungsi untuk mengelola cookie dalam aplikasi Flutter, yang biasanya digunakan untuk menyimpan informasi seperti sesi pengguna atau preferensi pengguna yang perlu dipertahankan di antara permintaan HTTP. Ketika aplikasi melakukan permintaan ke server, cookie bisa disertakan dalam header HTTP, dan CookieRequest memastikan bahwa cookie yang relevan ikut dikirimkan dan diterima dengan benar. Dengan cara ini, informasi terkait sesi pengguna dapat dipertahankan tanpa perlu mengautentikasi ulang setiap kali permintaan dilakukan.
 
 Instance CookieRequest perlu dibagikan ke seluruh komponen di aplikasi karena cookie sering kali digunakan untuk mengelola status pengguna di seluruh aplikasi, seperti memastikan pengguna tetap masuk setelah aplikasi dimuat ulang. Jika CookieRequest hanya digunakan di satu bagian aplikasi, informasi sesi atau cookie yang dibutuhkan bisa hilang ketika aplikasi berpindah antar tampilan atau komponen. Dengan membagikan instance ini, seluruh aplikasi dapat mengakses dan mengelola cookie secara konsisten, menjaga pengalaman pengguna yang lebih lancar dan menghindari masalah terkait otentikasi atau status sesi yang terputus.
 
-## 4. Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter.
+### 4. Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter.
 Proses pengiriman data dari input hingga dapat ditampilkan di Flutter melibatkan beberapa langkah utama yang mencakup interaksi antara frontend (Flutter) dan backend (Django). Berikut adalah penjelasan mekanisme lengkapnya:
 
 **1. Input Data pada Flutter**
@@ -488,7 +488,7 @@ Proses pengiriman data dari input hingga dapat ditampilkan di Flutter melibatkan
   1.  Data yang telah diolah ditampilkan di layar menggunakan widget seperti `ListView`, `FutureBuilder`, atau lainnya.
   2.  UI disesuaikan agar data terlihat menarik dan mudah dibaca.
 
-## 5. Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+### 5. Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
 Proses autentikasi mencakup alur data mulai dari input di Flutter, pengolahan di Django, hingga respons kembali ke Flutter. Berikut adalah penjelasan rinci setiap tahapannya:
 
  **1. Register (Pendaftaran Akun)**
@@ -546,8 +546,8 @@ Proses autentikasi mencakup alur data mulai dari input di Flutter, pengolahan di
     1.  Jika logout berhasil, Flutter menghapus status login dan mengarahkan pengguna kembali ke halaman login.
     2.  Jika gagal, pesan error ditampilkan.
 
-## 6. Jelaskan bagaimana cara kamu mengimplementasikan _checklist_ di atas secara _step-by-step_! (bukan hanya sekadar mengikuti tutorial).
-### 1.  Mengimplementasikan fitur registrasi akun pada proyek tugas Flutter.
+### 6. Jelaskan bagaimana cara kamu mengimplementasikan _checklist_ di atas secara _step-by-step_! (bukan hanya sekadar mengikuti tutorial).
+#### 1.  Mengimplementasikan fitur registrasi akun pada proyek tugas Flutter.
 1. pertama-tama saya install django-cors-headers, lalu tambahkan ke dalam daftar `INSTALLED_APPS` di file `settings.py`. Selanjutnya, masukkan `corsheaders.middleware.CorsMiddleware` ke bagian MIDDLEWARE di `settings.py` untuk memungkinkan pengaturan CORS (Cross-Origin Resource Sharing). Lalu, buat function register di `views.py` pada app `authentication` yang ada di django app seperti berikut.
 
 ```dart
@@ -612,7 +612,7 @@ def register(request):
   ...
 ```
 
-### 2. Membuat halaman login pada proyek tugas Flutter.
+#### 2. Membuat halaman login pada proyek tugas Flutter.
 langkahnya agak mirip dengan implementasi register. yakni 
 1. membuat function `login` lalu tambahkan di `views.py` authentication pada django app seperti berikut :
 ```dart
@@ -678,13 +678,13 @@ onPressed: () async {
 ...
 ```
 
-### 3. Mengintegrasikan sistem autentikasi Django dengan proyek tugas Flutter.
+#### 3. Mengintegrasikan sistem autentikasi Django dengan proyek tugas Flutter.
 sudah dijelaskan dengan detail pada soal nomor 5
 
-### 4. Membuat model kustom sesuai dengan proyek aplikasi Django.
+#### 4. Membuat model kustom sesuai dengan proyek aplikasi Django.
 Pada Django, buat terlebih dahulu beberapa contoh product dengan menggunakan fitur add new product, lalu pergi ke page JSON dengan menambahkan `/json/` di url web localhostnya. jadi nanti bentuknya `localhost:8000/json`. Setelah itu, copy data JSON dalam bentuk pretty print dan copas ke website QuickType lalu ubah jadi format dart. Buat sebuah direktori baru bernama `models` dan file baru di dalamnya yang bernama `product_entry.dart` dan paste data JSON tadi ke dalam file tersebut. 
 
-### 5. Membuat halaman yang berisi daftar semua item yang terdapat pada endpoint JSON di Django yang telah kamu deploy.
+#### 5. Membuat halaman yang berisi daftar semua item yang terdapat pada endpoint JSON di Django yang telah kamu deploy.
 Buat file baru di folder `screens` dengan nama `list_productentry.dart`. Di dalam file tersebut, ambil data dari JSON Django dan masukkan ke dalam sebuah list menggunakan loop. Setelah itu, gunakan widget `ListView` untuk menampilkan data dalam format kolom. Pastiin data yang ditampilkan itu mencakup nama produk, harga produk, dan deskripsinya sehingga pengguna dapat melihat informasi produk dengan jelas. kurang lebih implemntasinya sebagai berikut :
 ```dart
   Future<List<ProductEntry>> fetchProduct(CookieRequest request) async {
@@ -703,7 +703,7 @@ Buat file baru di folder `screens` dengan nama `list_productentry.dart`. Di dala
   }
 ```
 
-### 6. Membuat halaman detail untuk setiap item yang terdapat pada halaman daftar Item.
+#### 6. Membuat halaman detail untuk setiap item yang terdapat pada halaman daftar Item.
 untuk membuat halaman detail untuk setiap item, saya membuat sebuah file baru di dalam folder `screens` bernama `details_product`. implementasinya sebagai berikut : 
 ```dart
 import 'package:flutter/material.dart';
@@ -830,7 +830,7 @@ Setelah itu, saya _connect_-in dengan `list_productentry.dart` agar bisa ditampi
               );
 ```
 
-### 7. Melakukan filter pada halaman daftar item dengan hanya menampilkan item yang terasosiasi dengan pengguna yang login.
+#### 7. Melakukan filter pada halaman daftar item dengan hanya menampilkan item yang terasosiasi dengan pengguna yang login.
 Filtering item berdasarkan pengguna yang login ini sudah dihandle pada Back-end Django. karena kita mengintegrasikan function dengan django, jadi seharusnya filterisasi sudah berjalan baik, yaitu melalui potongan kode berikut:
 ```dart
 def show_json(request) :
